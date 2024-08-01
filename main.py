@@ -35,7 +35,14 @@ model = Sequential()
 model.add(Dense(100, input_shape=(784,), activation='relu'))
 # output layer
 model.add(Dense(10, activation='softmax'))
-
+model = Sequential([
+  Conv2D(32, (3,3), input_shape=(28, 28, 3) activation='relu'), 
+  BatchNormalization(),
+  Conv2D(32, (3,3), activation='relu'), 
+  BatchNormalization(),
+  MaxPooling2D(),
+  Dense(2, activation='softmax')
+])
 # looking at the model summary
 model.summary()
 # compiling the sequential model
